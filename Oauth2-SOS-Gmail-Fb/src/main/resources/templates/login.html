@@ -1,0 +1,36 @@
+<html xmlns:th="http://thymeleaf.org">
+
+<h1 style="color:red;text-align:center">Login Page</h1>
+
+<form th:action="@{/login}" method ="post">
+<table border="0" bgcolor="cyan" align="center">
+
+<tr>
+
+<td>UserName</td>
+<td><input type ="text" name ="username"/></td>
+</tr>
+<tr>
+
+<td>Password</td>
+<td><input type ="text" name ="password"/></td>
+</tr>
+
+<tr>
+
+<td><input type ="submit" value="login"/></td>
+<td><input type ="reset" name ="cancle"/></td>
+</tr>
+
+</table>
+<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
+<span style="color:red;text-align:center" th:if="{param.error}">Invalid login details </span>
+<span style="color:red;text-align:center" th:if="{param.logout}">User logged successful </span>
+
+</form>
+<br>--------------(or) <br>
+<br><h1 style="color:red;text-align:center"><a href="/oauth2/authentication/facebook">Login as FaceBook user</a></h1>
+<hr>
+<br><h1 style="color:red;text-align:center"><a href="/oauth2/authentication/google">Login as Gmail user</a></h1>
+</html>
